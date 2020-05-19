@@ -1,9 +1,13 @@
 const Discord = require("discord.js");
+
 module.exports = {
-    nombre: "help",
-    alias: [],
-    run: (client, message, args, ) => {
-    const embed = new Discord.MessageEmbed()
+    name: "help",
+    aliases: [],
+    category: "usersCommands",
+    description: "Command description",
+    usage: "[args input]",
+    run: (client, message, args) => {
+        const embed = new Discord.MessageEmbed()
         .setColor('#0099ff')
 	    .setAuthor(`O'Connor`, client.user.avatarURL())
 	    .addFields(
