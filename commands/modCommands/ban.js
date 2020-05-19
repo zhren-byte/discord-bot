@@ -4,7 +4,7 @@ module.exports = {
     aliases: ['desterrar', 'expatriar','b'],
     description: 'destierra del server al wachin seleccionado',
     run: async (client, message, args) => {
-        const channel = client.channels.cache.get('699038844460466206')
+        const channel = client.channels.cache.get('693542385329635348')
         if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("No tienes permisos para hacer esto.");
         let user = message.mentions.users.first();
         let member = message.guild.member(user);

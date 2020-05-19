@@ -15,14 +15,14 @@ module.exports = {
         if(!warns_db.tiene(`${message.guild.id}.${warneado.id}`)){
         warns_db.establecer(`${message.guild.id}.${warneado.id}`, 0)
         warns_db.sumar(`${message.guild.id}.${warneado.id}`, 1)
-        warneado.warns(razon).then(() => {
-        const channel = client.channels.cache.get('699038844460466206')
+        warneado.warn(razon).then(() => {
+        const channel = client.channels.cache.get('693542385329635348')
         const embed = new Discord.MessageEmbed()
 	        .setColor('#ff0000')
 	        .setAuthor(`O'Connor`, client.user.avatarURL())
 	        .addFields(
-            { name: 'Usuario warneado:', value: warneado, inline: true},
-            { name: 'ID:', value: warneado.id, inline: true},
+            { name: 'Miembro:', value: warneado(warneado.id)},
+            { name: 'Accion:', value: "Warn"},
             { name: 'Moderador:', value: message.author.username},
             { name: 'Razon:', value: razon},
             { name: 'Fecha:', value: message.createdAt.toLocaleString()}

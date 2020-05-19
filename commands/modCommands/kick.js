@@ -5,7 +5,7 @@ module.exports = {
     category: 'modCommands', 
     description: 'expulsa a un wachin seleccionado',
     run: async (client, message, args) => {
-        const channel = client.channels.cache.get('699038844460466206')
+        const channel = client.channels.cache.get('693542385329635348')
         if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("No tienes permisos para hacer esto.");
         let user = message.mentions.users.first();
         let member = message.guild.member(user);
@@ -16,15 +16,14 @@ module.exports = {
         if (!reason) reason = "No hay razón provista."
         member.kick(reason).then(() => {
         const embed = new Discord.MessageEmbed()
-	          .setColor('#ff0000')
-	          .setAuthor(`O'Connor`, client.user.avatarURL())
-	          .addFields(
-              { name: 'Usuario kickeado:', value: user.username},
-              { name: 'ID:', value: user.id},
-              { name: 'Moderador:', value: message.author.username},
-              { name: 'Razon:', value: reason},
-              { name: 'Fecha:', value: message.createdAt.toLocaleString()}
-            )
+	        .setColor('#ff0000')
+	        .setAuthor(`O'Connor`, client.user.avatarURL())
+	        .addFields(
+            { name: 'Miembro:', value: `${user} (${user.id})`},
+            { name: 'Accion:', value: "Unban"},
+            { name: 'Moderador:', value: message.author.username},
+            { name: 'Fecha:', value: message.createdAt.toLocaleString()}
+           )
         channel.send(embed)
         }).catch(err => {
           message.reply("No he podido expulsar al miembro.")

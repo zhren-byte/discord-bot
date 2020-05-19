@@ -5,7 +5,7 @@ module.exports = {
     description: 'desbanea al wachin desterrado',
     category: 'modCommands',
     run: async (client, message, args) => {
-    const channel = client.channels.cache.get('699038844460466206')
+    const channel = client.channels.cache.get('693542385329635348')
     if(!message.member.hasPermission(["BAN_MEMBERS", "ADMINISTRATOR"])) return message.channel.send("No tienes permiso para utilizar este comando")
 	  if(isNaN(args[0])) return message.channel.send("Proporcione una ID")
     let bannedMember = await client.users.fetch(args[0])
@@ -17,14 +17,14 @@ module.exports = {
     try {
         message.guild.members.unban(bannedMember, reason)
         const embed = new Discord.MessageEmbed()
-        .setColor('#ff0000')
-	      .setAuthor(`O'Connor`, client.user.avatarURL())
-	      .addFields(
-          { name: 'Usuario desbaneado:', value: `${bannedMember}`},
-          { name: 'ID:', value: `${bannedMember.id}`},
-          { name: 'Moderador:', value: message.author.username},
-          { name: 'Fecha:', value: message.createdAt.toLocaleString()}
-        )
+	        .setColor('#ff0000')
+	        .setAuthor(`O'Connor`, client.user.avatarURL())
+	        .addFields(
+            { name: 'Miembro:', value: `${bannedMember} (${bannedMember.id})`},
+            { name: 'Accion:', value: "Unban"},
+            { name: 'Moderador:', value: message.author.username},
+            { name: 'Fecha:', value: message.createdAt.toLocaleString()}
+         )
         channel.send(embed)
     } catch(e) {
         console.log(e.message)

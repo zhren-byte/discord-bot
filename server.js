@@ -1,8 +1,7 @@
 const http = require('http');
 const express = require('express');
 const app = express();
-//const { ErelaClient } = require('erela.js');
-
+const { ErelaClient } = require("erela.js");
 app.use(express.static('public'));
 
 app.get("/", function (request, response) {
@@ -43,26 +42,8 @@ client.on("ready", () => {
       }
     });
   });
-/*const { 
-  registerCommands, 
-  registerEvents,
-  registerMusicEvents,
-} = require('./utils/register');
 
-(async () => {
-  await client.login(process.env.TOKEN);
-  client.music = new ErelaClient(client, [
-    {
-      host: process.env.HOST,
-      port: process.env.PORT,
-      password: process.env.PASSWORD
-    }
-  ]);
-  client.commands = new Map();
-  await registerMusicEvents(client.music, '../musicevents');
-  await registerCommands(client, '../commands');
-  await registerEvents(client, '../events');
-})();*/
+
 //autoRole & welcome
 client.on('guildMemberAdd', async member => {
     console.log('El usuario ' + member.user.tag + ' entro al servidor!');

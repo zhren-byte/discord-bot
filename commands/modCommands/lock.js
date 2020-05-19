@@ -5,9 +5,7 @@ const IGNORED = new Set([
   699038849686438038,
   699038850663841913,
   699038852437770280
-  
 ]);
-
 module.exports = {
     name: "lock",
   aliases: ['lockdown'],
@@ -45,5 +43,4 @@ module.exports = {
       }
     }
   },
-
 }
