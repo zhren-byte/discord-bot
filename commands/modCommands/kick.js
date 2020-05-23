@@ -18,12 +18,8 @@ module.exports = {
         const embed = new Discord.MessageEmbed()
 	        .setColor('#ff0000')
 	        .setAuthor(`O'Connor`, client.user.avatarURL())
-	        .addFields(
-            { name: 'Miembro:', value: `${user} (${user.id})`},
-            { name: 'Accion:', value: "Unban"},
-            { name: 'Moderador:', value: message.author.username},
-            { name: 'Fecha:', value: message.createdAt.toLocaleString()}
-           )
+          .setDescription(`**Miembro:** ${member} (${member.id})\n **Accion:** Kick\n**Razon:** ${reason}\n **Moderador:** ${message.author.username}`)
+          .setTimestamp()
         channel.send(embed)
         }).catch(err => {
           message.reply("No he podido expulsar al miembro.")

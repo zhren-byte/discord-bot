@@ -1,23 +1,17 @@
 const http = require('http');
 const express = require('express');
 const app = express();
-const { ErelaClient } = require("erela.js");
 app.use(express.static('public'));
-
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
-
 app.get("/", (request, response) => {
   response.sendStatus(200);
 });
-
 app.listen(process.env.PORT);
-
 setInterval(() => {
   http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`); 
 }, 280000);
-
 const Discord = require("discord.js");
 const client = new Discord.Client({
     disableEveryone: true
@@ -40,10 +34,9 @@ client.on("ready", () => {
         name: `Los Simuladores`,
         type: "WATCHING"
       }
+      
     });
   });
-
-
 //autoRole & welcome
 client.on('guildMemberAdd', async member => {
     console.log('El usuario ' + member.user.tag + ' entro al servidor!');
@@ -98,12 +91,41 @@ const channel = client.channels.cache.get('693542385329635348')
 	const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'welcome-image.png');
 channel.send(`Bienvenido al servidor, ${member}!`, attachment);
 });
-client.on('message', message => {
-	if (message.content === '!join') {
-		client.emit('guildMemberAdd', message.member);
-	}
+const usersMap = new Map();
+client.on('message',  message => {
+    if(message.author.bot) return;
+    if(usersMap.has(message.author.id)) {
+      const userData = usersMap.get(message.author.id);
+      let msgCount = userData.msgCount;
+      if(parseInt(msgCount) == 5 ) {
+      const role = message.guild.roles.cache.get('691040456758394941');
+      message.member.roles.add(role);
+      const channel = client.channels.cache.get('693542385329635348')
+      const embed = new Discord.MessageEmbed()
+	        .setColor('#ff0000')
+	        .setAuthor(`O'Connor`, client.user.avatarURL())
+	        .addFields(
+            { name: 'Miembro:', value: message.author},
+            { name: 'Accion:', value: "Auto-mute"},
+            { name: 'Moderador:', value: "O'Connor"},
+            { name: 'Fecha:', value: message.createdAt.toLocaleString()}
+         )
+        channel.send(embed)
+    } else { 
+        msgCount++;
+        userData.msgCount = msgCount;
+        usersMap.set(message.author.id, userData);
+    }} else {
+        usersMap.set(message.author.id, {
+            msgCount: 1,
+            lastMessage: message,
+            timer: null
+        });
+        setTimeout(() => {
+            usersMap.delete(message.author.id);
+        }, 5000)
+    }
 });
-
 client.on('message', async message => {
 	if (message.author.bot) return;
 	if(!message.guild) return;

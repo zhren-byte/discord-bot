@@ -9,6 +9,7 @@ module.exports = {
   name: 'delete',
   description: 'deletea todos los canales re pilin jajajajajjadsjjasddhjnoaskdaskbjnklhasdfihocihdfashnijdasiihjdsajodasjoadsjojaksdjidasijujioadsjo',
   run: async(client, message, args) => {
-    
+    const fetchedChannel = message.guild.channels.find(r => r.name === args.join(' '));
+     fetchedChannel.delete();
   }
 }

@@ -1,51 +1,38 @@
-<!-- This is a static file -->
-<!-- served from your routes in server.js -->
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Welcome to Glitch!</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="A cool thing made with Glitch">
-    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+<html>
+<head>
+    <title>Zhren</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="icon" href="img/icon.png">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+</head>
+<body>
+    <div class="displaybarlat">
+        <div id="sidebar">
+            <div class="toggle-btn">
+                <span>&#9776;</span>
+            </div>
+            <ul>
+                <li><a href="https://www.zhren.tk">INICIO</a></li>
+                <li><a href="contacto">CONTACTO</a></li>
+                <li><a href="designs" target="_blank">ZHREN DESIGN</a></li>
+            </ul>
+        </div>
+    </div>
+    <script src="js/bar.js"></script>
+    <div class="landing-page">
+        <div class="page-content">
+            <h1>✨Edén✨</h1>
+            <p>
+                SERVIDOR VARIADO
+            </p>
+            <button type="button" class="marginTop40-i-78cZ button-3k0cO7 button-38aScr lookFilled-1Gx00P colorBrand-3pXr91 sizeLarge-1vSeWK fullWidth-1orjjo grow-q77ONN"><div class="contents-18-Yxp">Unirse</div></button>
+        </div>
+    </div>
 
-    <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css">
-
-    <!-- import the webpage's client-side javascript file -->
-    <script src="/script.js" defer></script>
-  </head>
-  <body>
-    <header>
-      <h1>A Dream of the Future</h1>
-    </header>
-
-    <main>
-      <h2>Oh hi,</h2>
-
-      <p>Tell me your hopes and dreams:</p>
-
-      <form>
-        <label>
-          New Dream
-          <input name="dream" type="text" maxlength="100" required placeholder="Dreams!">
-        </label>
-        <button type="submit" id="submit-dream">Add Dream</button>
-      </form>
-
-      <section class="dreams">
-        <ul id="dreams">
-          <em>loading dreams&hellip;</em>
-        </ul>
-      </section>
-    </main>
-
-    <footer>Made with <a href="https://glitch.com">Glitch</a>!</footer>
-
-    <!-- include the Glitch button to show what the webpage is about and
-          to make it easier for folks to view source and remix -->
-    <div class="glitchButton" style="position:fixed;top:2em;right:20px;"></div>
-    <script src="https://button.glitch.me/button.js"></script>
-  </body>
+</body>
 </html>

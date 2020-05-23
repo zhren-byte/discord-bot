@@ -23,7 +23,7 @@ module.exports = {
             deleteAmount = parseInt(args[0]);
         }
         message.channel.bulkDelete(deleteAmount, true)
-            .then(deleted => message.channel.send(`Acabo de borrar \`${deleted.size}\` mensajes.`))
-            .catch(err => message.reply(`Hubo alto error amigo. ${err}`));
+        .then(deleted => {message.channel.send(`Acabo de borrar \`${deleted.size}\` mensajes.`).then(msg => msg.delete({ timeout: 5000 }))})
+        .catch(err => {message.reply(`Hubo alto error amigo. ${err}`).then(msg => msg.delete({ timeout: 5000}))});
     }
 }

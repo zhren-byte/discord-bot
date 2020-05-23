@@ -5,7 +5,6 @@
   "main": "node server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lavalink": "java -jar Lavalink.jar",
     "start": "node server.js"
   },
   "dependencies": {

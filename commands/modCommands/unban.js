@@ -19,12 +19,8 @@ module.exports = {
         const embed = new Discord.MessageEmbed()
 	        .setColor('#ff0000')
 	        .setAuthor(`O'Connor`, client.user.avatarURL())
-	        .addFields(
-            { name: 'Miembro:', value: `${bannedMember} (${bannedMember.id})`},
-            { name: 'Accion:', value: "Unban"},
-            { name: 'Moderador:', value: message.author.username},
-            { name: 'Fecha:', value: message.createdAt.toLocaleString()}
-         )
+          .setDescription(`**Miembro:** ${bannedMember} (${bannedMember.id})\n **Accion:** Un-Ban\n **Moderador:** ${message.author.username}`)
+          .setTimestamp()
         channel.send(embed)
     } catch(e) {
         console.log(e.message)
