@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Discord-Bold";
+  src: url(https://cdn.glitch.com/1274e970-fc06-412c-aa9e-daf3dbf8a89c%2Fdiscord-bold.woff?v=1590267643242);
+}
+
+@font-face {
+  font-family: "Discord-Light";
+  src: url(https://cdn.glitch.com/1274e970-fc06-412c-aa9e-daf3dbf8a89c%2Fdiscord-light.woff?v=1590267642943);
+}
+
+@font-face {
+  font-family: "Discord-Normal";
+  src: url(https://cdn.glitch.com/1274e970-fc06-412c-aa9e-daf3dbf8a89c%2Fdiscord-normal.woff?v=1590267642850);
+}

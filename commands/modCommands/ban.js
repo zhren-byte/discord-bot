@@ -17,13 +17,8 @@ module.exports = {
         const embed = new Discord.MessageEmbed()
         .setColor('#ff0000')
 	      .setAuthor(`O'Connor`, client.user.avatarURL())
-	      .addFields(
-          { name: 'Usuario baneado:', value: `${user}`, inline: true},
-          { name: 'ID:', value: `${user.id}`, inline: true},
-          { name: 'Moderador:', value: message.author.username},
-          { name: 'Razon:', value: reason, inline: true},
-          { name: 'Fecha:', value: message.createdAt.toLocaleString()}
-        )
+        .setDescription(`**Miembro:** ${user} (${user.id})\n **Accion:** Mute\n**Razon:** ${reason}\n **Moderador:** ${message.author.username}`)
+        .setTimestamp()
         channel.send(embed)
         }).catch(err => {
           message.reply("No he podido banear al miembro");

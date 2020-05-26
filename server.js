@@ -39,10 +39,11 @@ client.on("ready", () => {
   });
 //autoRole & welcome
 client.on('guildMemberAdd', async member => {
+registerFont('/app/assets/buranussr.ttf', { family: 'Buran USSR' })
+registerFont('/app/assets/transformer.ttf', { family: 'Transformer' })
     console.log('El usuario ' + member.user.tag + ' entro al servidor!');
     var autoRole = ('689255497148530701');
     member.roles.add(autoRole);
-//orden
 const applyText = (canvas, text) => {
     const ctx = canvas.getContext('2d');
     let fontSize = 56;
@@ -51,13 +52,13 @@ const applyText = (canvas, text) => {
     } while (ctx.measureText(text).width > canvas.width - 300);
         return ctx.font;
 };
-const channel = client.channels.cache.get('693542385329635348')
+const channel = client.channels.cache.get('692585554679955527')
 	if (!channel) return;
 	//context
 	if (!channel) return;
 	const canvas = createCanvas(810, 250);
 	const ctx = canvas.getContext('2d');
-	const background = await loadImage('https://cdn.glitch.com/1274e970-fc06-412c-aa9e-daf3dbf8a89c%2Fwelcome.jpg?v=1587627738858');
+	const background = await loadImage('/app/assets/muse.jpg');
 	ctx.globalAlpha =  1.0;
 	ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 	ctx.strokeStyle = '#000000';
@@ -76,7 +77,7 @@ const channel = client.channels.cache.get('693542385329635348')
 	ctx.strokeStyle = '#000000';
 	ctx.strokeText(`sos el miembro ${member.guild.memberCount}th `, canvas.width / 1.77, canvas.height / 1.8);
 	//textServer
-	ctx.font = '40px Broadway';
+	ctx.font = '40px Transformer';
 	ctx.fillStyle = '#ffffff';
 	ctx.fillText(`de ${member.guild.name}`, canvas.width / 1.77, canvas.height / 1.34);
 	ctx.strokeStyle = '#000000';
@@ -91,6 +92,11 @@ const channel = client.channels.cache.get('693542385329635348')
 	const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'welcome-image.png');
 channel.send(`Bienvenido al servidor, ${member}!`, attachment);
 });
+client.on('message', message => {
+	if (message.content === '!join') {
+		client.emit('guildMemberAdd', message.member);
+	}
+});
 const usersMap = new Map();
 client.on('message',  message => {
     if(message.author.bot) return;
@@ -104,12 +110,8 @@ client.on('message',  message => {
       const embed = new Discord.MessageEmbed()
 	        .setColor('#ff0000')
 	        .setAuthor(`O'Connor`, client.user.avatarURL())
-	        .addFields(
-            { name: 'Miembro:', value: message.author},
-            { name: 'Accion:', value: "Auto-mute"},
-            { name: 'Moderador:', value: "O'Connor"},
-            { name: 'Fecha:', value: message.createdAt.toLocaleString()}
-         )
+          .setDescription(`**Miembro:** ${message.author} (${message.author.id})\n **Accion:** Auto-Mute\n **Moderador:** ${message.author.username}`)
+          .setTimestamp()
         channel.send(embed)
     } else { 
         msgCount++;
