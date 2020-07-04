@@ -7,7 +7,7 @@ module.exports = {
     let member = message.mentions.members.first();
     let role = message.guild.roles.cache.find(r => r.id == '691040456758394941')
     member.roles.remove(role).catch(console.error);
-    const channel = client.channels.cache.get('693542385329635348')
+    const channel = client.channels.cache.get('675585949983440897')
     const embed = new Discord.MessageEmbed()
 	        .setColor('#ff0000')
 	        .setAuthor(`O'Connor`, client.user.avatarURL())

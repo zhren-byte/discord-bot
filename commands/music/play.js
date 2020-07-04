@@ -1,5 +1,4 @@
-const ytdl = require('ytdl-core');
-module.exports = {
+/*module.exports = {
   name: 'play',
   aliases: ['p'],
   description: 'pa pone musica',
@@ -16,4 +15,4 @@ module.exports = {
       })
       .catch(console.error);
   }
-}
+}*/

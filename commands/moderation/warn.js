@@ -16,7 +16,7 @@ module.exports = {
         warns_db.establecer(`${message.guild.id}.${warneado.id}`, 0)
         warns_db.sumar(`${message.guild.id}.${warneado.id}`, 1)
         warneado.warn(razon).then(() => {
-        const channel = client.channels.cache.get('693542385329635348')
+        const channel = client.channels.cache.get('675585949983440897')
         const embed = new Discord.MessageEmbed()
 	        .setColor('#ff0000')
 	        .setAuthor(`O'Connor`, client.user.avatarURL())

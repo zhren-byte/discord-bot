@@ -34,7 +34,6 @@ client.on("ready", () => {
         name: `Los Simuladores`,
         type: "WATCHING"
       }
-      
     });
   });
 //autoRole & welcome

@@ -5,7 +5,7 @@ module.exports = {
     description: 'desbanea al wachin desterrado',
     category: 'modCommands',
     run: async (client, message, args) => {
-    const channel = client.channels.cache.get('693542385329635348')
+    const channel = client.channels.cache.get('675585949983440897')
     if(!message.member.hasPermission(["BAN_MEMBERS", "ADMINISTRATOR"])) return message.channel.send("No tienes permiso para utilizar este comando")
 	  if(isNaN(args[0])) return message.channel.send("Proporcione una ID")
     let bannedMember = await client.users.fetch(args[0])

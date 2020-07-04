@@ -1,10 +1,14 @@
 from flask import Flask, render_template
 
-app = Flask(name)
+app = Flask(__name__, static_folder='public', template_folder='views')
 
 @app.route("/")
 def home():
     return render_template('home.html')
   
-  if name == 'main':
-    app.run(debug=True)
+@app.route("/commands")
+def commands():
+    return render_template('commands.html')  
+  
+if __name__ == '__main__':
+  app.run(debug=True)

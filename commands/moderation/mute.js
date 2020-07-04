@@ -10,7 +10,7 @@ module.exports = {
     member.roles.add(role).catch(console.error);
     let reason = args.slice(1).join(" ");
     if (!reason) reason = "No hay razón provista."
-    const channel = client.channels.cache.get('693542385329635348')
+    const channel = client.channels.cache.get('675585949983440897')
     const embed = new Discord.MessageEmbed()
 	        .setColor('#ff0000')
 	        .setAuthor(`O'Connor`, client.user.avatarURL())
